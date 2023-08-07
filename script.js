@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var regionChart = new Chart(regionChartCanvas, {
     type: "bar",
     data: {
-      labels: ["Região 1", "Região 2", "Região 3", "Região 4", "Região 5"],
+      labels: ["São Paulo", "Pedregulho", "Salto", "Limeira", "Indaiatuba"],
       datasets: [{
         label: "Número de Casos",
-        data: [500, 300, 200, 400, 600],
+        data: [195, 55, 34, 30, 28],
         backgroundColor: "#007bff",
         borderColor: "#007bff",
         borderWidth: 1
@@ -63,12 +63,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var literacyChartCanvas = document.getElementById("literacy-chart").getContext("2d");
   var literacyChart = new Chart(literacyChartCanvas, {
+    type: "pie",
+    data: {
+      labels: ["Operador de Motosserra", "Vendedor Pracista", "Trabalhador Volante da Agricultura", "Trabalhador Agropecuário em Geral", "Confecção na Máquina"],
+      datasets: [{
+        data: [924, 195, 166, 117, 117],
+        backgroundColor: ["#a2825c", "#88d3ab", "#f9fad2", "#f5da7a", "#ff985e"],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            font: {
+              weight: "bold"
+            },
+            color: "#495057"
+          }
+        }
+      },
+      cutout: "0%"
+    }
+  });
+});
+
+  var economicChartCanvas = document.getElementById("economic-chart").getContext("2d");
+  var economicChart = new Chart(economicChartCanvas, {
     type: "doughnut",
     data: {
-      labels: ["Alfabetizados", "Não Alfabetizados"],
+      labels: ["Confecção de peças do vestuário, exceto roupas íntimas", "Cultivo de café", "Comércio varejista de produtos de padaria, laticínio e outros", "Cultivo de laranja", "Construção de edifícios"],
       datasets: [{
-        data: [80, 20],
-        backgroundColor: ["#28a745", "#dc3545"],
+        data: [171, 56, 52, 46, 30],
+        backgroundColor: ["#bd2f28", "#fcc574", "#295264", "#89373d", "#142433" ],
         borderWidth: 0
       }]
     },
@@ -90,6 +121,4 @@ document.addEventListener("DOMContentLoaded", function() {
       cutout: "70%"
     }
   });
-});
 ``
-//

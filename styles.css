@@ -30,6 +30,7 @@ header {
   background-color: #2d2e2c;
   color: #fff;
   padding: 20px;
+  
   text-align: center;
 }
 
@@ -85,6 +86,33 @@ canvas {
 img {
   max-width: 100%;
   margin-bottom: 20px;
+}
+
+.img-first{
+  width: 500px; 
+  height: auto; 
+}
+
+.titles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* .one{
+  margin-left: 100px;
+}
+.two{
+  margin-right: 100px;
+} */
+
+.img-second{
+  width: 500px; 
+  height: auto; 
+}
+.img-third{
+  width: 500px; 
+  height: auto; 
 }
 
 footer {
