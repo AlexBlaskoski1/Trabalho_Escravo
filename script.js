@@ -121,4 +121,28 @@ document.addEventListener("DOMContentLoaded", function() {
       cutout: "70%"
     }
   });
-``
+  function calcularMedias() {
+    const valores = document.getElementById("valores").value.split(",");
+    const pesos = document.getElementById("pesos").value.split(",");
+
+    const valoresNumeros = valores.map(valor => parseFloat(valor));
+    const pesosNumeros = pesos.map(peso => parseFloat(peso));
+    
+    const mediaAritmetica = valoresNumeros.reduce((acc, val) => acc + val, 0) / valoresNumeros.length;
+    
+    const somaPesos = pesosNumeros.reduce((acc, peso) => acc + peso, 0);
+    const produtos = valoresNumeros.map((valor, index) => valor * pesosNumeros[index]);
+    const somaProdutos = produtos.reduce((acc, produto) => acc + produto, 0);
+    const mediaPonderada = somaProdutos / somaPesos;
+    
+    const media = mediaAritmetica; // Pode ser a média aritmética ou ponderada
+    const squaredDiffs = valoresNumeros.map(valor => Math.pow(valor - media, 2));
+    const variancia = squaredDiffs.reduce((acc, squaredDiff) => acc + squaredDiff, 0) / valoresNumeros.length;
+    const desvioPadrao = Math.sqrt(variancia);
+    
+    // Exibir resultados nas equações
+    document.getElementById("maResult").textContent = `: ${mediaAritmetica.toFixed(2)}`;
+    document.getElementById("mpR").textContent = `Média Ponderada: ${mediaPonderada.toFixed(2)}`;
+    document.getElementById("varR").textContent = `Variância: ${variancia.toFixed(2)}`;
+    document.getElementById("desR").textContent = `Desvio Padrão: ${desvioPadrao.toFixed(2)}`;
+  }

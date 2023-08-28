@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cálculos Estatísticos</title>
+</head>
+<body>
+<h1>Cálculos Estatísticos</h1>
+
+<h2>Insira os valores separados por vírgula:</h2>
+<input type="text" id="valores" placeholder="Valores">
+<h2>Insira os pesos separados por vírgula (para Média Ponderada):</h2>
+<input type="text" id="pesos" placeholder="Pesos">
+<button onclick="calcularMedias()">Calcular</button>
+
+<h2>Resultados:</h2>
+<p>Média Aritmética: <span id="mediaAritmetica"></span></p>
+<p>Média Ponderada: <span id="mediaPonderada"></span></p>
+<p>Variância: <span id="variancia"></span></p>
+<p>Desvio Padrão: <span id="desvioPadrao"></span></p>
+
+<script>
+  function calcularMedias() {
+    const valores = document.getElementById("valores").value.split(",");
+    const pesos = document.getElementById("pesos").value.split(",");
+
+    const valoresNumeros = valores.map(valor => parseFloat(valor));
+    const pesosNumeros = pesos.map(peso => parseFloat(peso));
+    
+    const mediaAritmetica = valoresNumeros.reduce((acc, val) => acc + val, 0) / valoresNumeros.length;
+    
+    const somaPesos = pesosNumeros.reduce((acc, peso) => acc + peso, 0);
+    const produtos = valoresNumeros.map((valor, index) => valor * pesosNumeros[index]);
+    const somaProdutos = produtos.reduce((acc, produto) => acc + produto, 0);
+    const mediaPonderada = somaProdutos / somaPesos;
+    
+    const media = mediaAritmetica; // Pode ser a média aritmética ou ponderada
+    const squaredDiffs = valoresNumeros.map(valor => Math.pow(valor - media, 2));
+    const variancia = squaredDiffs.reduce((acc, squaredDiff) => acc + squaredDiff, 0) / valoresNumeros.length;
+    const desvioPadrao = Math.sqrt(variancia);
+    
+    document.getElementById("mediaAritmetica").textContent = mediaAritmetica.toFixed(2);
+    document.getElementById("mediaPonderada").textContent = mediaPonderada.toFixed(2);
+    document.getElementById("variancia").textContent = variancia.toFixed(2);
+    document.getElementById("desvioPadrao").textContent = desvioPadrao.toFixed(2);
+  }
+</script>
+
+</body>
+</html>
