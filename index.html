@@ -74,31 +74,53 @@
     </section>
 
     <section id="equacoes">
-      <h2>Equações</h2>
-      <p>
-        Aqui você encontrará equações matemáticas que foram utilizadas:
-      </p>
-      <br>
-      <div class="titles">
-        <p id="ma" style="margin-left: 80px">
-          Média Aritmética:<br> 
-        </p>
-        <br>
-        <br>
-        <p id="mp" style="margin-left: 80px">
-          Média Ponderada:
-        </p>
-        <br>
-        <br>  
-        <p id="var" style="margin-left: 40px">
-          Variância:
-        </p>
-        <br>
-        <br> 
-        <p id="des" style="margin-right: 60px">
-          Desvio Padrão:
-        </p>
-        <br>
+      <h1>Cálculos Estatísticos</h1>
+
+<h2>Insira os valores separados por vírgula:</h2>
+<input type="text" id="valores" placeholder="Valores">
+<h2>Insira os pesos separados por vírgula (para Média Ponderada):</h2>
+<input type="text" id="pesos" placeholder="Pesos">
+<button onclick="calcularMedias()">Calcular</button>
+
+<section id="equacoes">
+  <h2>Equações</h2>
+  <p>
+    Aqui você encontrará equações matemáticas que foram utilizadas:
+  </p>
+  <br>
+  <div class="titles">
+    <p id="ma" style="margin-left: 80px">
+      Média Aritmética:<br> 
+    </p>
+    <br>
+    <br>
+    <p id="mp" style="margin-left: 80px">
+      Média Ponderada:
+    </p>
+    <br>
+    <br>  
+    <p id="var" style="margin-left: 40px">
+      Variância:
+    </p>
+    <br>
+    <br> 
+    <p id="des" style="margin-right: 60px">
+      Desvio Padrão:
+    </p>
+    <br>
+  </div>
+  <div class="images"
+    <p id="maResult" style="margin-left: 80px"></p>
+    <br>
+    <p id="mpR" style="margin-left: 80px"></p>
+    <br>  
+    <p id="varR" style="margin-left: 40px"></p>
+    <br>
+    <p id="desR" style="margin-right: 60px"></p>
+    <br>
+  </div>
+</section>
+        
       </div>
       <div class="images">
         <img src="./assets/mediaarit.png" style="margin-right: 50px">
